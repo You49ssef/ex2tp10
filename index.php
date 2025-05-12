@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['titre'])) {
 
     if (!empty($titre) && !empty($auteur) && !empty($date_creation)) {
         $stmt = $conn->prepare("INSERT INTO exercice (titre, auteur, date_creation) VALUES (?, ?, ?)");
-        $stmt->bind_param("alonso", $titre, $auteur, $date_creation);
+        $stmt->bind_param("sss", $titre, $auteur, $date_creation);
         $stmt->execute();
         $stmt->close();
         $message = "L'exercice a été ajouté avec succès";
